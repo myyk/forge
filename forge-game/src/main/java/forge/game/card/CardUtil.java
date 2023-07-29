@@ -259,6 +259,7 @@ public final class CardUtil {
 
         // extra copy PT boost
         newCopy.setPTBoost(in.getPTBoostTable());
+        newCopy.setSwitchPTTable(in.getSwitchPTTable());
 
         newCopy.setCounters(Maps.newHashMap(in.getCounters()));
 
