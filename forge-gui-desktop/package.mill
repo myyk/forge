@@ -1,0 +1,51 @@
+// mill.init.maven.codegen$comment$@1d9e358c
+
+package build.`forge-gui-desktop`
+
+import mill._
+import mill.javalib._
+import mill.javalib.publish._
+
+// mill.init.maven.codegen$comment$@1d9e358c
+import $file.BaseMavenModule
+
+object `package` extends RootModule with BaseMavenModule {
+
+  override def artifactName = "forge-gui-desktop"
+
+  override def moduleDeps = Seq(
+    build.`forge-ai`,
+    build.`forge-core`,
+    build.`forge-game`,
+    build.`forge-gui`
+  )
+
+  override def ivyDeps = Agg(
+    ivy"com.beust:jcommander:1.82",
+    ivy"com.googlecode.soundlibs:jlayer:1.0.1.4",
+    ivy"com.miglayout:miglayout-swing:4.2",
+    ivy"com.mortennobel:java-image-scaling:0.8.6",
+    ivy"com.sipgate:mp3-wav:1.0.4;exclude=com.googlecode.soundlibs:jlayer",
+    ivy"com.twelvemonkeys.imageio:imageio-jpeg:3.12.0",
+    ivy"net.bytebuddy:byte-buddy:1.15.5",
+    ivy"org.freemarker:freemarker:2.3.33",
+    ivy"org.powermock:powermock-module-testng-common:2.0.9;exclude=com.beust:jcommander;exclude=net.bytebuddy:byte-buddy;exclude=org.testng:testng;exclude=org.objenesis:objenesis;exclude=net.bytebuddy:byte-buddy-agent"
+  )
+
+
+  // mill.init.maven.codegen$comment$@1d9e358c
+  trait Tests extends super.Tests {
+
+    override def ivyDeps = super.ivyDeps() ++ Agg(
+      ivy"net.bytebuddy:byte-buddy-agent:1.15.5",
+      ivy"org.mockito:mockito-core:5.14.2;exclude=org.objenesis:objenesis;exclude=net.bytebuddy:byte-buddy;exclude=net.bytebuddy:byte-buddy-agent",
+      ivy"org.objenesis:objenesis:3.4",
+      ivy"org.powermock:powermock-api-mockito2:2.0.9;exclude=org.mockito:mockito-core",
+      ivy"org.powermock:powermock-api-support:2.0.9",
+      ivy"org.powermock:powermock-core:2.0.9;exclude=net.bytebuddy:byte-buddy;exclude=net.bytebuddy:byte-buddy-agent",
+      ivy"org.powermock:powermock-module-testng:2.0.9;exclude=org.testng:testng",
+      ivy"org.testng:testng:7.10.2;exclude=com.beust:jcommander"
+    )
+  }
+
+}

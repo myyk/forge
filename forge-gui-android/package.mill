@@ -1,0 +1,41 @@
+// mill.init.maven.codegen$comment$@1d9e358c
+
+package build.`forge-gui-android`
+
+import mill._
+import mill.javalib._
+import mill.javalib.publish._
+
+// mill.init.maven.codegen$comment$@1d9e358c
+import $file.BaseMavenModule
+
+object `package` extends RootModule with BaseMavenModule {
+
+  override def artifactName = "forge-gui-android"
+
+  override def javacOptions = Seq(
+    "--release",
+    "17"
+  )
+
+  override def moduleDeps = Seq(
+    build.`forge-ai`,
+    build.`forge-core`,
+    build.`forge-game`,
+    build.`forge-gui-mobile`,
+    build.`forge-gui`
+  )
+
+  override def ivyDeps = Agg(
+    ivy"io.sentry:sentry-android-core:7.15.0;type=aar;exclude=androidx.lifecycle:lifecycle-process;exclude=androidx.lifecycle:lifecycle-common-java8;exclude=androidx.core:core",
+    ivy"io.sentry:sentry-android-ndk:7.15.0;type=aar;exclude=io.sentry:sentry-android-core;exclude=androidx.lifecycle:lifecycle-process;exclude=androidx.lifecycle:lifecycle-common-java8;exclude=androidx.core:core",
+    ivy"io.sentry:sentry-android:7.15.0;type=aar;exclude=io.sentry:sentry-android-core;exclude=io.sentry:sentry-android-ndk"
+  )
+
+  override def compileIvyDeps = Agg(
+    ivy"org.robolectric:android-all:15-robolectric-12468137"
+  )
+
+
+
+}

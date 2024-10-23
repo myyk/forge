@@ -1,0 +1,40 @@
+// mill.init.maven.codegen$comment$@1d9e358c
+
+package build.`forge-gui-mobile`
+
+import mill._
+import mill.javalib._
+import mill.javalib.publish._
+
+// mill.init.maven.codegen$comment$@1d9e358c
+import $file.BaseMavenModule
+
+object `package` extends RootModule with BaseMavenModule {
+
+  override def artifactName = "forge-gui-mobile"
+
+  override def javacOptions = Seq(
+    "--release",
+    "17"
+  )
+
+  override def moduleDeps = Seq(
+    build.`forge-ai`,
+    build.`forge-core`,
+    build.`forge-game`,
+    build.`forge-gui`
+  )
+
+  override def ivyDeps = Agg(
+    ivy"com.badlogicgames.gdx-controllers:gdx-controllers-core:2.2.3;exclude=com.badlogicgames.gdx:gdx",
+    ivy"com.badlogicgames.gdx:gdx-ai:1.8.2;exclude=com.badlogicgames.gdx:gdx",
+    ivy"com.badlogicgames.gdx:gdx-box2d:1.13.0",
+    ivy"com.badlogicgames.gdx:gdx-freetype:1.13.0",
+    ivy"com.badlogicgames.gdx:gdx:1.13.0",
+    ivy"com.github.raeleus.TenPatch:tenpatch:5.2.3;exclude=com.badlogicgames.gdx:gdx",
+    ivy"com.github.tommyettinger:textratypist:0.8.2;exclude=com.badlogicgames.gdx:gdx"
+  )
+
+
+
+}

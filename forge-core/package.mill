@@ -1,0 +1,23 @@
+// mill.init.maven.codegen$comment$@1d9e358c
+
+package build.`forge-core`
+
+import mill._
+import mill.javalib._
+import mill.javalib.publish._
+
+// mill.init.maven.codegen$comment$@1d9e358c
+import $file.BaseMavenModule
+
+object `package` extends RootModule with BaseMavenModule {
+
+  override def artifactName = "forge-core"
+
+  override def ivyDeps = Agg(
+    ivy"com.google.guava:guava:33.3.1-android",
+    ivy"org.apache.commons:commons-lang3:3.17.0"
+  )
+
+
+
+}

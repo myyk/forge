@@ -1,0 +1,34 @@
+// mill.init.maven.codegen$comment$@1d9e358c
+
+package build.`forge-game`
+
+import mill._
+import mill.javalib._
+import mill.javalib.publish._
+
+// mill.init.maven.codegen$comment$@1d9e358c
+import $file.BaseMavenModule
+
+object `package` extends RootModule with BaseMavenModule {
+
+  override def artifactName = "forge-game"
+
+  override def moduleDeps = Seq(
+    build.`forge-core`
+  )
+
+  override def ivyDeps = Agg(
+    ivy"com.googlecode:minlog:1.2",
+    ivy"io.sentry:sentry-logback:7.15.0"
+  )
+
+
+  // mill.init.maven.codegen$comment$@1d9e358c
+  trait Tests extends super.Tests {
+
+    override def ivyDeps = super.ivyDeps() ++ Agg(
+      ivy"org.testng:testng:7.10.2"
+    )
+  }
+
+}

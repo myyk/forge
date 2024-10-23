@@ -33,6 +33,10 @@ bin
 gen
 *.log
 
+# Ingnore Mill cache files
+out
+.metals/
+
 # Ignore macOS Spotlight rubbish
 .DS_Store
 

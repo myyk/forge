@@ -1,0 +1,44 @@
+// mill.init.maven.codegen$comment$@1d9e358c
+
+package build
+
+import mill._
+import mill.javalib._
+import mill.javalib.publish._
+
+// mill.init.maven.codegen$comment$@1d9e358c
+import $packages._
+
+trait BaseMavenModule extends MavenModule with PublishModule {
+
+  override def pomSettings = PomSettings(
+    s"""Forge lets you play the card game Magic: The Gathering against a computer opponent using all of the rules.""".stripMargin,
+    "CardForge",
+    "https://www.cardforge.org/",
+    Seq(
+      License("GPL 3", "GPL 3", "http://www.gnu.org/licenses/gpl-3.0-standalone.html", false, false, "repo")
+    ),
+    VersionControl(
+      Option(null),
+      Option("scm:git:https://github.com/Card-Forge/forge.git"),
+      Option("scm:git:https://github.com/Card-Forge/forge.git"),
+      Option("HEAD")
+    ),
+    Seq()
+  )
+
+  override def publishVersion = "2.0.00-SNAPSHOT"
+
+  trait Tests extends MavenTests {
+
+    override def defaultCommandName() = "test"
+
+  }
+}
+
+object `package` extends RootModule with BaseMavenModule {
+
+  override def artifactName = "forge"
+
+  override def pomPackagingType = PackagingType.Pom
+}

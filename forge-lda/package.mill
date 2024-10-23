@@ -1,0 +1,31 @@
+// mill.init.maven.codegen$comment$@1d9e358c
+
+package build.`forge-lda`
+
+import mill._
+import mill.javalib._
+import mill.javalib.publish._
+
+// mill.init.maven.codegen$comment$@1d9e358c
+import $file.BaseMavenModule
+
+object `package` extends RootModule with BaseMavenModule {
+
+  override def artifactName = "forge-lda"
+
+  override def javacOptions = Seq(
+    "--release",
+    "17"
+  )
+
+  override def moduleDeps = Seq(
+    build.`forge-ai`,
+    build.`forge-core`,
+    build.`forge-game`,
+    build.`forge-gui-desktop`,
+    build.`forge-gui`
+  )
+
+
+
+}

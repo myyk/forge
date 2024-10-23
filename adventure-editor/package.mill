@@ -1,0 +1,32 @@
+// mill.init.maven.codegen$comment$@1d9e358c
+
+package build.`adventure-editor`
+
+import mill._
+import mill.javalib._
+import mill.javalib.publish._
+
+// mill.init.maven.codegen$comment$@1d9e358c
+import $file.BaseMavenModule
+
+object `package` extends RootModule with BaseMavenModule {
+
+  override def artifactName = "adventure-editor"
+
+  override def javacOptions = Seq(
+    "--release",
+    "17"
+  )
+
+  override def moduleDeps = Seq(
+    build.`forge-gui-mobile`,
+    build.`forge-gui`
+  )
+
+  override def ivyDeps = Agg(
+    ivy"org.jetbrains:annotations:26.0.1"
+  )
+
+
+
+}

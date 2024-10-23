@@ -1,0 +1,35 @@
+// mill.init.maven.codegen$comment$@1d9e358c
+
+package build.`forge-gui-ios`
+
+import mill._
+import mill.javalib._
+import mill.javalib.publish._
+
+// mill.init.maven.codegen$comment$@1d9e358c
+import $file.BaseMavenModule
+
+object `package` extends RootModule with BaseMavenModule {
+
+  override def artifactName = "forge-gui-ios"
+
+  override def javacOptions = Seq(
+    "--release",
+    "17"
+  )
+
+  override def moduleDeps = Seq(
+    build.`forge-ai`,
+    build.`forge-core`,
+    build.`forge-game`,
+    build.`forge-gui-mobile`,
+    build.`forge-gui`
+  )
+
+  override def ivyDeps = Agg(
+    ivy"com.badlogicgames.gdx:gdx-backend-robovm:1.13.0"
+  )
+
+
+
+}
